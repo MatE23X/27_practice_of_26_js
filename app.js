@@ -4,7 +4,7 @@
 //  "12");
 
 
-let secretNumber = Math.trunc(Math.random());
+let secretNumber = Math.trunc(Math.random()*20) + 1;
 console.log(secretNumber);
 let score = 20;
 let check = document.querySelector(".check");
@@ -26,6 +26,7 @@ check.addEventListener("click",function(){
         // highScore = parseInt(document.querySelector(".high-score").textContent = score);
     //notice the difference between value and textContent
     //when using parseInt
+    document.querySelector(".question-mark").textContent = secretNumber;
     }
     else if (guess > secretNumber){
         
@@ -38,6 +39,7 @@ check.addEventListener("click",function(){
             document.querySelector(".message").textContent =
             "You've lost the game";
             document.querySelector(".score").textContent = 0;
+            document.querySelector(".question-mark").textContent = secretNumber;
         }
       
     }
@@ -47,11 +49,13 @@ check.addEventListener("click",function(){
         document.querySelector(".message").textContent = "Too Low!";
         --score;
         document.querySelector(".score").textContent = score;
+        
     }
         else{
             document.querySelector(".message").textContent =
             "You lost the game!"
             document.querySelector(".score").textContent = 0;
+            document.querySelector(".question-mark").textContent = secretNumber;
         }
 
 }
